@@ -11,12 +11,12 @@
                         <div class="row">
                             <div class="col-4">
                                 <label>Title</label>
-                                <input id="titleFormCreate" class="form-control" type="text" placeholder="Make homework" required>
+                                <input id="titleFormCreate" data-title="title" class="form-control" type="text" placeholder="Make homework" required>
                                 <div id="titleFeedBackCreate"></div>
                             </div>
                             <div class="col-4">
                                 <label>Type</label>
-                                <select id="type_idFormCreate" class="form-control" required>
+                                <select id="type_idFormCreate" data-title="type_id" class="form-control" required>
                                     <option value="#" selected disabled>select an option</option>
                                     @foreach ($types as $type)
                                         <option value="{{$type->id}}">{{$type->name}}</option>
@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-4">
                                 <label>Status</label>
-                                <select id="status_idFormCreate" class="form-control" required>
+                                <select id="status_idFormCreate" data-title="status_id" class="form-control" required>
                                     <option value="#" selected disabled>select an option</option>
                                     @foreach ($statuses as $status)
                                     <option value="{{$status->id}}">{{$status->name}}</option>
@@ -38,7 +38,7 @@
                         <div class="row mt-2">
                             <div class="col-12">
                                 <label>Description</label>
-                                <textarea id="descriptionFormCreate" placeholder="Maths homework..." class="form-control" cols="30" rows="3" required></textarea>
+                                <textarea id="descriptionFormCreate" data-title="description" placeholder="Maths homework..." class="form-control" cols="30" rows="3" required></textarea>
                                 <div id="descriptionFeedBackCreate"></div>
                             </div>
                         </div>

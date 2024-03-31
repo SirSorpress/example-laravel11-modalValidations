@@ -20,18 +20,14 @@ const formCreateTodo = async(event) => {
 
     console.log(data);
 
-    handleRestartValues(data);
+    handleClearCreateModal('createModal');
 
     const {response, body} = await post(url, data);
 
     if(response.status == 201){
         console.log('creado correctamente');
-        console.log(createModal.classList);
-        createModal.classList.remove('show');
-        createModal.classList.add('hide');
-        console.log(createModal.classList);
     }else{
-        console.log(body, body.errors);
+        console.log('NO CREADO',body, body.errors);
         handleErrors(body.errors)
     }
 
@@ -52,18 +48,6 @@ const post = async(url = '', data = {}) => {
     return { response, body };
 }
 
-
-const handleRestartValues = (data = {}) => {
-    for (const property in data) {
-        const input = document.querySelector(`#${property}FormCreate`);
-        const feedBack = document.querySelector(`#${property}FeedBackCreate`);
-
-        input.classList.remove('is-invalid');
-        feedBack.classList.remove('invalid-feedback');
-        feedBack.innerHTML = '';
-    };
-}
-
 const handleErrors = (errors) => {
     for (const property in errors) {
         const input = document.querySelector(`#${property}FormCreate`);
@@ -74,5 +58,23 @@ const handleErrors = (errors) => {
         feedBack.classList.add('invalid-feedback');
         feedBack.innerHTML = errors[property][0];
     };
+}
+
+const handleClearCreateModal = (id = '', data = {}, clearValues = false) => {
+    const typeInputs = ['input', 'select', 'textarea'];
+
+    typeInputs.forEach((element) => {
+        const inputs = document.querySelectorAll(`#${id} ${element}`);
+
+        inputs.forEach((input) => {
+            input.classList.remove('is-invalid');
+
+            if(clearValues) console.log('FALTA IMPLEMENTAR');
+
+            const feedBack = document.querySelector(`#${input.dataset.title}FeedBackCreate`);
+            feedBack.classList.remove('invalid-feedback');
+            feedBack.innerHTML = '';
+        });
+    })
 }
 
