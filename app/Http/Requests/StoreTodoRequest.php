@@ -22,10 +22,10 @@ class StoreTodoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => ['required', 'numeric'],
-            'title' => ['required', 'numeric'],
-            // 'type_id' => ['required', 'date'],
-            // 'status_id' => ['required', 'date'],
+            'title' => ['required', 'string'],
+            'type_id' => ['required', 'numeric', 'exists:types,id'],
+            'status_id' => ['required', 'numeric', 'exists:statuses,id'],
+            'description' => ['required', 'string'],
         ];
     }
 }

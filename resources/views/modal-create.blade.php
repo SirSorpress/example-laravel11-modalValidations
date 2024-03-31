@@ -38,7 +38,7 @@
                         <div class="row mt-2">
                             <div class="col-12">
                                 <label>Description</label>
-                                <textarea id="descriptionFormCreate" data-title="description" placeholder="Maths homework..." class="form-control" cols="30" rows="3" required></textarea>
+                                <textarea id="descriptionFormCreate" name="description" data-title="description" placeholder="Maths homework..." class="form-control" cols="30" rows="3" required></textarea>
                                 <div id="descriptionFeedBackCreate"></div>
                             </div>
                         </div>

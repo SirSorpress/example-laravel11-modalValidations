@@ -11,6 +11,7 @@ const formCreateTodo = async(event) => {
     const description = document.querySelector('#descriptionFormCreate').value;
 
     const url = `${$URL}/todo?${$CSRF}`;
+
     const data = {
         title,
         type_id,
@@ -20,12 +21,12 @@ const formCreateTodo = async(event) => {
 
     console.log(data);
 
-    handleClearCreateModal('createModal');
+    handleClearModal('createModal');
 
     const {response, body} = await post(url, data);
 
     if(response.status == 201){
-        console.log('creado correctamente');
+        console.log('creado correctamente', body);
     }else{
         console.log('NO CREADO',body, body.errors);
         handleErrors(body.errors)
@@ -60,7 +61,7 @@ const handleErrors = (errors) => {
     };
 }
 
-const handleClearCreateModal = (id = '', data = {}, clearValues = false) => {
+const handleClearModal = (id = '', clearValues = false) => {
     const typeInputs = ['input', 'select', 'textarea'];
 
     typeInputs.forEach((element) => {

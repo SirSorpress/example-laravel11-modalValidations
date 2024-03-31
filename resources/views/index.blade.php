@@ -15,8 +15,7 @@
     {{-- TODO ->
         1 - Cierre y Apertura del modal
         2 - Limpiar los inputs cada vez que se cierra el modal
-        3 - Logica de creacion (store)
-        4 - Renderizado de tabla dinamico
+        3 - Renderizado de tabla dinamico
     --}}
 
     <div class="row">

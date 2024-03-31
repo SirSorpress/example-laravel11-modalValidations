@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
+use App\Http\Resources\TodoResource;
 use App\Models\Status;
 use App\Models\Todo;
 use App\Models\Type;
+use Carbon\Carbon;
 
 class TodoController extends Controller
 {
@@ -29,7 +31,20 @@ class TodoController extends Controller
      */
     public function store(StoreTodoRequest $request)
     {
-        return response()->json($request,201);
+        $data = $request->all();
+
+        $todo = Todo::create([
+            'title' => $data['title'],
+            'status_id' => $data['status_id'],
+            'type_id' => $data['type_id'],
+            'description' => $data['description'],
+            'date' => Carbon::now()->format('Y-m-d'),
+        ]);
+
+        return (new TodoResource($todo))->additional([
+            'status' => 'ok',
+            'code' => '201',
+        ]);
     }
 
     /**
