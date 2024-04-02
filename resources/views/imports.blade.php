@@ -1,7 +1,11 @@
 {{-- JS imports --}}
 
-<script src="{{asset('js/Todo.js')}}"></script>
-<script src="{{asset('js/toggleThemeMode.js')}}"></script>
+<script defer src="{{asset('js/toggleThemeMode.js')}}"></script>
+<script defer src="{{asset('js/Methods.js')}}"></script>
+<script defer src="{{asset('js/Types.js')}}"></script>
+<script defer src="{{asset('js/Status.js')}}"></script>
+<script defer src="{{asset('js/CreateTodo.js')}}"></script>
+<script defer src="{{asset('js/IndexTodo.js')}}"></script>
 
 
 {{-- Golbal vars --}}

@@ -27,26 +27,13 @@ const formCreateTodo = async(event) => {
 
     if(response.status == 201){
         console.log('creado correctamente', body);
+        await loadTable();
     }else{
         console.log('NO CREADO',body, body.errors);
         handleErrors(body.errors)
     }
 
     console.log(response, response.status);
-}
-
-const post = async(url = '', data = {}) => {
-    const response = await fetch(url,{
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-
-    const body = await response.json();
-    return { response, body };
 }
 
 const handleErrors = (errors) => {

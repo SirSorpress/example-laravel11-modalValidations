@@ -15,7 +15,6 @@
     {{-- TODO ->
         1 - Cierre y Apertura del modal
         2 - Limpiar los inputs cada vez que se cierra el modal
-        3 - Renderizado de tabla dinamico
     --}}
 
     <div class="row">
@@ -32,8 +31,8 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @forelse ($todos as $todo)
+                    <tbody id="todoTable">
+                        {{-- @forelse ($todos as $todo)
                             <tr>
                                 <td>{{$todo->id}}</td>
                                 <td>{{$todo->title}}</td>
@@ -46,7 +45,7 @@
                             <tr>
                                 <td colspan="6">Not found</td>
                             </tr>
-                        @endforelse
+                        @endforelse --}}
                     </tbody>
                 </table>
             </div>

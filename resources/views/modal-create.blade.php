@@ -16,22 +16,12 @@
                             </div>
                             <div class="col-4">
                                 <label>Type</label>
-                                <select id="type_idFormCreate" data-title="type_id" class="form-control" required>
-                                    <option value="#" selected disabled>select an option</option>
-                                    @foreach ($types as $type)
-                                        <option value="{{$type->id}}">{{$type->name}}</option>
-                                    @endforeach
-                                </select>
+                                <select id="type_idFormCreate" data-title="type_id" class="form-control" required></select>
                                 <div id="type_idFeedBackCreate"></div>
                             </div>
                             <div class="col-4">
                                 <label>Status</label>
-                                <select id="status_idFormCreate" data-title="status_id" class="form-control" required>
-                                    <option value="#" selected disabled>select an option</option>
-                                    @foreach ($statuses as $status)
-                                    <option value="{{$status->id}}">{{$status->name}}</option>
-                                    @endforeach
-                                </select>
+                                <select id="status_idFormCreate" data-title="status_id" class="form-control" required></select>
                                 <div id="status_idFeedBackCreate"></div>
                             </div>
                         </div>

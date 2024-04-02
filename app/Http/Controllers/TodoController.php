@@ -17,13 +17,12 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
-
-        $types = Type::all();
-
-        $statuses = Status::all();
-
-        return view('index',['todos' => $todos, 'types' => $types, 'statuses' => $statuses]);
+        $todos = Todo::paginate();
+        
+        return TodoResource::collection($todos)->additional([
+            'status' => 'ok',
+            'code' => 200,
+        ]);
     }
 
     /**

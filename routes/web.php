@@ -1,11 +1,20 @@
 <?php
 
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//BASE
+Route::view('/', 'index');
 
-Route::get('/', [TodoController::class, 'index'])->name('index');
+//TODOS
+Route::get('/todo', [TodoController::class, 'index'])->name('index');
 Route::post('/todo', [TodoController::class, 'store'])->name('store');
+
+//TYPES
+Route::get('/type', [TypeController::class, 'index'])->name('idex.type');
+
+
+//STATUES
+Route::get('/status', [StatusController::class, 'index'])->name('idex.type');
