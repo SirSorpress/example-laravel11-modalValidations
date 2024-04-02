@@ -12,10 +12,6 @@
         </div>
     </div>
 
-    {{-- TODO ->
-        1 - Limpiar los inputs cada vez que se cierra el modal
-    --}}
-
     <div class="row">
         <div class="col-12">
             <div class="d-flex align-content-center justify-content-center p-lg-4">

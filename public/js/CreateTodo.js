@@ -5,7 +5,10 @@ const createModalInstance = new bootstrap.Modal(document.getElementById('createM
 
 const openModalCreate = () => createModalInstance.show();
 
-const closeModalCreate = () => createModalInstance.hide();
+const closeModalCreate = () => {
+    handleClearModal('createModal', true);
+    createModalInstance.hide();
+}
 
 const formCreateTodo = async(event) => {
     event.preventDefault();
@@ -33,7 +36,7 @@ const formCreateTodo = async(event) => {
     if(response.status == 201){
         console.log('creado correctamente', body);
         await loadTable();
-        closeModalCreate()
+        closeModalCreate();
     }else{
         console.log('NO CREADO',body, body.errors);
         handleErrors(body.errors)
@@ -61,12 +64,21 @@ const handleClearModal = (id = '', clearValues = false) => {
         inputs.forEach((input) => {
             input.classList.remove('is-invalid');
 
-            if(clearValues) console.log('FALTA IMPLEMENTAR');
+            if(clearValues) handleClearInputs(input);
 
             const feedBack = document.querySelector(`#${input.dataset.title}FeedBackCreate`);
             feedBack.classList.remove('invalid-feedback');
             feedBack.innerHTML = '';
         });
     })
+}
+
+const handleClearInputs = (input) => {
+    if(input.nodeName === 'INPUT' || input.nodeName === 'TEXTAREA' ){
+        input.value = '';
+    }
+    if(input.nodeName === 'SELECT') {
+        input.value = '#';
+    }
 }
 
