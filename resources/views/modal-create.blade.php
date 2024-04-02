@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModalCreate()">Close</button>
                         <button type="submit" class="btn btn-primary" >Save changes</button>
                     </div>
                 </form>
