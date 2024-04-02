@@ -1,6 +1,11 @@
 
 // CREATE
 const createModal = document.querySelector('#createModal');
+const createModalInstance = new bootstrap.Modal(document.getElementById('createModal'));
+
+const openModalCreate = () => createModalInstance.show();
+
+const closeModalCreate = () => createModalInstance.hide();
 
 const formCreateTodo = async(event) => {
     event.preventDefault();
@@ -28,12 +33,11 @@ const formCreateTodo = async(event) => {
     if(response.status == 201){
         console.log('creado correctamente', body);
         await loadTable();
+        closeModalCreate()
     }else{
         console.log('NO CREADO',body, body.errors);
         handleErrors(body.errors)
     }
-
-    console.log(response, response.status);
 }
 
 const handleErrors = (errors) => {

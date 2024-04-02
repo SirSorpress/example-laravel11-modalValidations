@@ -5,7 +5,7 @@
         <div class="col-12">
             <button
                 class="btn btn-lg btn-outline-success ms-4"
-                data-bs-toggle="modal" data-bs-target="#createModal">
+                onclick="openModalCreate()">
                 create
             </button>
             @include('modal-create')
@@ -13,8 +13,7 @@
     </div>
 
     {{-- TODO ->
-        1 - Cierre y Apertura del modal
-        2 - Limpiar los inputs cada vez que se cierra el modal
+        1 - Limpiar los inputs cada vez que se cierra el modal
     --}}
 
     <div class="row">
@@ -32,20 +31,6 @@
                         </tr>
                     </thead>
                     <tbody id="todoTable">
-                        {{-- @forelse ($todos as $todo)
-                            <tr>
-                                <td>{{$todo->id}}</td>
-                                <td>{{$todo->title}}</td>
-                                <td>{{$todo->description}}</td>
-                                <td>{{$todo->date}}</td>
-                                <td>{{$todo->type_id}}</td>
-                                <td>{{$todo->status_id }}</td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6">Not found</td>
-                            </tr>
-                        @endforelse --}}
                     </tbody>
                 </table>
             </div>
